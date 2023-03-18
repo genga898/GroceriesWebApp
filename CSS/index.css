@@ -1,0 +1,22 @@
+﻿#banner {
+    background: url(../images/Background1.png);
+    background-size: cover;
+    height: 500px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#latestContent {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-decoration: none;
+    color: #dddddd;
+}
+img {
+    width: 100%;
+}
+.card img {
+    object-fit: cover;
+
+}

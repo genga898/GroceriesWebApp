@@ -1,0 +1,25 @@
+﻿body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    padding: 20px;
+    background: #297631;
+    margin-top: auto;
+}
+
+#footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+#footer a{
+    text-decoration: none;
+    color: white;
+    margin: 0 20px; /* added margin on both ends */
+}
