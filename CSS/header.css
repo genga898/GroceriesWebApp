@@ -52,7 +52,9 @@ nav li a {
 }
 
 nav li a:hover {
-    background-color: lightblue;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
 }
 
 i #register{
