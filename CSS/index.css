@@ -1,7 +1,7 @@
 ﻿#banner {
     background: url(../images/Background1.png);
     background-size: cover;
-    height: 500px;
+    height: 350px;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     display: flex;
     flex-direction: column;
@@ -14,9 +14,25 @@
     color: #dddddd;
 }
 img {
-    width: 100%;
+    object-fit: cover; 
 }
-.card img {
+#categories .card img {
     object-fit: cover;
+    width: 20rem;
+    height: 19rem;
+}
+#categories .card {
+    width: 20rem;
+    height: 19rem;
+}
+.accordion-body {
+    background: #297631;
+    color: #dddddd;
+}
 
+.FAQ {
+    background: #dddddd;
+}
+#categories a {
+    text-decoration: none;
 }
