@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="categories.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -86,6 +87,11 @@
     <Content Include="CSS\footer.css" />
     <Content Include="CSS\header.css" />
     <Content Include="CSS\index.css" />
+    <Content Include="CSS\login.css" />
+    <Content Include="dairy.aspx" />
+    <Content Include="eggs.aspx" />
+    <Content Include="forgotpassword.aspx" />
+    <Content Include="freshjuice.aspx" />
     <Content Include="images\Allium.jpg" />
     <Content Include="images\background.jpg" />
     <Content Include="images\Background1.png" />
@@ -114,16 +120,54 @@
     <Content Include="images\Tropical and pudding.jpg" />
     <Content Include="images\Vegetablejuice.jpg" />
     <Content Include="index.aspx" />
-    <Content Include="index.html" />
+    <Content Include="login.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="vegetables.aspx" />
     <Content Include="Web.config" />
+    <Content Include="fruits.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="categories.aspx.cs">
+      <DependentUpon>categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categories.aspx.designer.cs">
+      <DependentUpon>categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dairy.aspx.cs">
+      <DependentUpon>dairy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dairy.aspx.designer.cs">
+      <DependentUpon>dairy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eggs.aspx.cs">
+      <DependentUpon>eggs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eggs.aspx.designer.cs">
+      <DependentUpon>eggs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgotpassword.aspx.cs">
+      <DependentUpon>forgotpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgotpassword.aspx.designer.cs">
+      <DependentUpon>forgotpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="freshjuice.aspx.cs">
+      <DependentUpon>freshjuice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="freshjuice.aspx.designer.cs">
+      <DependentUpon>freshjuice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grocery.Master.cs">
       <DependentUpon>grocery.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,7 +182,35 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="fruits.aspx.cs">
+      <DependentUpon>fruits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fruits.aspx.designer.cs">
+      <DependentUpon>fruits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vegetables.aspx.cs">
+      <DependentUpon>vegetables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vegetables.aspx.designer.cs">
+      <DependentUpon>vegetables.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
