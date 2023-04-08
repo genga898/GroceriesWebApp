@@ -18,12 +18,10 @@ img {
 }
 #categories .card img {
     object-fit: cover;
-    width: 20rem;
-    height: 19rem;
+    height: 20rem;
 }
 #categories .card {
-    width: 20rem;
-    height: 19rem;
+  
 }
 .accordion-body {
     background: #297631;
