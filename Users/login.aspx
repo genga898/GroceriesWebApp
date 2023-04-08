@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GroceriesWebApp.login" %>
+﻿<%@ Page EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GroceriesWebApp.login" %>
 
 <!DOCTYPE html>
 
@@ -15,17 +15,18 @@
             <div class="main_parent">
                 <div class="form_wrap">
                     <form>
+                        <asp:Label ID="lblError" runat="server" Text="" CssClass="alert alert-danger" Visible="False"></asp:Label><br/>
+                        <asp:Label ID="lblLoginConfirm" runat="server" Visible="False" CssClass="alert alert-success"></asp:Label><br/>
                         <h1>Welcome Back</h1>
                         <h3>sign in with your email and password</h3>
                         
                         <div class="background">
-                            <img src="../images/Background1.png" alt="background image">
+                            <img src="../images/Background1.png" alt="background image"/>
                         </div>
                         <div class="inputs">
                             <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
                             <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Email address is required" ForeColor="Red" ValidationGroup="Vg" ControlToValidate="txtEmail">*</asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage="Kindly enter the correct email address" ControlToValidate="txtEmail" ForeColor="Red" ValidationGroup="Vg">*</asp:RegularExpressionValidator>
-                            <br/>
+                            <asp:CustomValidator ID="cvEmail" runat="server" ErrorMessage="User with given email address cannot be found" ControlToValidate="txtEmail" ValidationGroup="Vg" ForeColor="Red" Text="*"></asp:CustomValidator>                            <br/>
                             <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
                         </div>
                         <div class="inputs">
