@@ -67,7 +67,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Users\categories.aspx" />
+    <Content Include="App_Data\kapfarm.mdf" />
+    <Content Include="App_Data\kapfarm_log.ldf">
+      <DependentUpon>kapfarm.mdf</DependentUpon>
+    </Content>
+    <Content Include="CSS\productCard.css" />
+    <Content Include="Users\accountInfo.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -88,6 +93,7 @@
     <Content Include="CSS\header.css" />
     <Content Include="CSS\index.css" />
     <Content Include="CSS\login.css" />
+    <Content Include="Users\cart.ascx" />
     <Content Include="Users\dairy.aspx" />
     <Content Include="Users\eggs.aspx" />
     <Content Include="Users\forgotpassword.aspx" />
@@ -128,17 +134,28 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Users\userReg.ascx" />
+    <Content Include="Users\userRegistration.ascx" />
     <Content Include="Users\vegetables.aspx" />
+    <Content Include="Users\account.ascx" />
+    <Content Include="Users\userAccount.ascx" />
     <Content Include="Web.config" />
     <Content Include="Users\fruits.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Users\categories.aspx.cs">
-      <DependentUpon>categories.aspx</DependentUpon>
+    <Compile Include="Users\accountInfo.aspx.cs">
+      <DependentUpon>accountInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users\categories.aspx.designer.cs">
-      <DependentUpon>categories.aspx</DependentUpon>
+    <Compile Include="Users\accountInfo.aspx.designer.cs">
+      <DependentUpon>accountInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\cart.ascx.cs">
+      <DependentUpon>cart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\cart.ascx.designer.cs">
+      <DependentUpon>cart.ascx</DependentUpon>
     </Compile>
     <Compile Include="Users\dairy.aspx.cs">
       <DependentUpon>dairy.aspx</DependentUpon>
@@ -204,12 +221,40 @@
     <Compile Include="Users\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Users\userReg.ascx.cs">
+      <DependentUpon>userReg.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\userReg.ascx.designer.cs">
+      <DependentUpon>userReg.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\userRegistration.ascx.cs">
+      <DependentUpon>userRegistration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\userRegistration.ascx.designer.cs">
+      <DependentUpon>userRegistration.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Users\vegetables.aspx.cs">
       <DependentUpon>vegetables.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Users\vegetables.aspx.designer.cs">
       <DependentUpon>vegetables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\account.ascx.cs">
+      <DependentUpon>account.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\account.ascx.designer.cs">
+      <DependentUpon>account.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\userAccount.ascx.cs">
+      <DependentUpon>userAccount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\userAccount.ascx.designer.cs">
+      <DependentUpon>userAccount.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

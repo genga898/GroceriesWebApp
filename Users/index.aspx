@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../Users/grocery.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GroceriesWebApp.index" %>
+﻿<%@ Page Title="" EnableEventValidation="false" Language="C#" MasterPageFile="../Users/grocery.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GroceriesWebApp.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,32 +12,32 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row gap-1 d-flex flex-row justify-content-sm-evenly" id="categories">
-                <div class="card text-white border-0 col-sm-12 col-2">
+            <div class="row gap-1 d-flex flex-lg-row justify-content-sm-evenly align-items-center flex-sm-column" id="categories">
+                <div class="card text-white border-0 col-sm-10 col-lg-2">
                     <img src="../images/categorydairy.jpg" class="card-img img-fluid" alt="Dairy">
                     <div class="card-img-overlay align-items-center d-flex justify-content-center">
                         <a href="dairy.aspx" class="text-white"><h5 class="card-title text-center display-6">Dairy</h5></a>
                     </div>
                 </div>
-                <div class="card text-white border-0 col-sm-12 col-2">
+                <div class="card text-white border-0 col-sm-10 col-lg-2">
                     <img src="../images/categoryvegetables.jpg" class="card-img img-fluid" alt="Dairy">
                     <div class="card-img-overlay align-items-center d-flex justify-content-center">
                         <a href="vegetables.aspx" class="text-white"><h5 class="card-title text-center display-6">Vegetables</h5></a>
                     </div>
                 </div>
-                <div class="card text-white border-0 col-sm-12 col-2">
+                <div class="card text-white border-0 col-sm-10 col-lg-2">
                     <img src="../images/categoryfruits.jpg" class="card-img img-fluid" alt="Dairy">
                     <div class="card-img-overlay align-items-center d-flex justify-content-center">
                         <a href="fruits.aspx" class="text-white"><h5 class="card-title text-center display-6">Fruits</h5></a>
                     </div>
                 </div>
-                <div class="card text-white border-0 col-sm-12 col-2">
+                <div class="card text-white border-0 col-sm-10 col-lg-2">
                     <img src="../images/Fresh Juice.jpg" class="card-img img-fluid" alt="Dairy">
                     <div class="card-img-overlay align-items-center d-flex justify-content-center">
                         <a href="freshjuice.aspx" class="text-white"><h5 class="card-title text-center display-6">Fresh Juice</h5></a>
                     </div>
                 </div>
-                <div class="card text-white border-0 col-sm-12 col-2">
+                <div class="card text-white border-0 col-sm-10 col-lg-2">
                     <img src="../images/kienyeji.jpg" class="card-img img-fluid" alt="Dairy">
                     <div class="card-img-overlay align-items-center d-flex justify-content-center">
                         <a href="eggs.aspx" class="text-white"><h5 class="card-title text-center display-6">Eggs</h5></a>
@@ -52,7 +52,7 @@
                 <p>FAQ's</p>
             </div>
             <div class="container-fluid d-flex justify-content-center align-content-center pb-5">
-            <div class="accordion w-75" id="accordionExample">
+            <div class="accordion w-100" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
