@@ -12,7 +12,7 @@ namespace GroceriesWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user_id"] == null)
+            if (Session["UserID"] == null)
             {
                 cartToggle.Attributes.Add("class", "disabled");
                 account.Visible = false;
@@ -20,12 +20,25 @@ namespace GroceriesWebApp
             }
             else
             {
+                int userID = (int)Session["UserID"];
                 cartToggle.Attributes.Remove("disabled");
                 account.Visible = true;
                 userAccount.Visible = true;
                 userReg.Visible = false;
                 userRegistration.Visible = false;
             }
+        }
+
+        
+
+        protected void btnRemove_OnClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void CheckoutButton_OnClick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

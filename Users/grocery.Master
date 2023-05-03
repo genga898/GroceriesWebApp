@@ -4,7 +4,7 @@
 <%@ Register Src="~/Users/userReg.ascx" TagPrefix="uc1" TagName="userReg" %>
 <%@ Register Src="~/Users/account.ascx" TagPrefix="uc1" TagName="account" %>
 <%@ Register Src="~/Users/userAccount.ascx" TagPrefix="uc1" TagName="userAccount" %>
-<%@ Register Src="~/Users/cart.ascx" TagPrefix="uc1" TagName="cart" %>
+<%@ Register Src="~/Users/cartItem.ascx" TagPrefix="uc1" TagName="cartItem" %>
 
 
 
@@ -31,13 +31,13 @@
         <!--HEADER A-->
         <div class="d-flex align-items-center justify-content-center gap-4 m-3 p-2">
             <div class="container-fluid col-sm-6 col-md-6 col-lg-6 d-flex">
-                <form class="d-flex border-0 rounded-1">
-                    <asp:TextBox ID="searchBoxA" CssClass="form-control me-1" runat="server" placeholder="Search"></asp:TextBox>
-                    <asp:Button ID="searchBtnA" class="btn btn-success" runat="server" Text="Search" />
-                </form>
+                <asp:TextBox ID="searchBoxA" CssClass="form-control me-1" runat="server" placeholder="Search"></asp:TextBox>
+                <asp:Button ID="searchBtnA" class="btn btn-success" runat="server" Text="Search" />
             </div>
             <div class=" btn d-flex justify-content-center align-items-center">
-                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="cartToggle" runat="server"><i class="fa fa-shopping-cart fa-lg" style="color: #297631;"></i></button>
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="cartToggle" runat="server">
+                    <i class="fa fa-shopping-cart fa-lg" style="color: #297631;"></i>
+                </button>
 
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" runat="server">
                     <div class="offcanvas-header">
@@ -46,33 +46,10 @@
                     </div>
                     <div class="offcanvas-body d-flex flex-column">
                         <div class="container-fluid gap-2">
-                            <div class="card cart-item">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <asp:Image ID="imgProduct" runat="server" ImageUrl="~/images/bananas.jpg" AlternateText="Product Image" CssClass="card-img" Height="100%" Width="100%" ImageAlign="AbsMiddle" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><asp:Literal ID="ltProductTitle" runat="server" Text="Product Title"></asp:Literal></h5>
-                                            <p class="card-text"><asp:Literal ID="ltProductPrice" runat="server" Text="$9.99"></asp:Literal></p>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="quantity-button input-group-text" />
-                                                </div>
-                                                <asp:TextBox ID="txtQuantity" runat="server" CssClass="quantity-input form-control" Text="1"></asp:TextBox>
-                                                <div class="input-group-append">
-                                                    <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="quantity-button input-group-text" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-sm btn-danger w-100" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <uc1:cartItem runat="server" ID="cartItem" />
                         </div>
                         <div class="mt-auto">
+                            <asp:Literal ID="ltlTotal" Text="" runat="server"></asp:Literal>
                             <asp:Button ID="CheckoutButton" runat="server" Text="Checkout" CssClass="btn btn-primary w-100" />
                         </div>
                     </div>

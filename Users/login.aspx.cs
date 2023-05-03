@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,14 +10,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GroceriesWebApp.Users;
+using GroceriesWebApp.usersTableAdapters;
 
 namespace GroceriesWebApp
 {
     public partial class login : System.Web.UI.Page
     {
-        private SqlConnection conn =
-            new SqlConnection(ConfigurationManager.ConnectionStrings["connectDb"].ConnectionString);
-        private SqlDataReader dtReader;
         private SqlCommand cmd;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,27 +28,38 @@ namespace GroceriesWebApp
             string email = string.Empty, password = string.Empty;
             email = txtEmail.Text;
             password = txtPassword.Text;
-            conn.Open();
-            cmd = new SqlCommand("select [user_id], names, email, password from Users where email = @email and password = @password", conn);
+            cmd = new SqlCommand();
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@password", HashPassword(password));
-            dtReader = cmd.ExecuteReader();
-            if (dtReader.Read())
+
+            DataTable dt = new DataTable();
+
+            usersTableAdapters.UsersTableAdapter users = new usersTableAdapters.UsersTableAdapter();
+            password = HashPassword(password);
+            dt = users.GetData(email, password);
+
+            if (dt.Rows.Count > 0)
             {
-                Session["user_id"] = dtReader.GetValue(0).ToString();
-                Session["names"] = dtReader.GetValue(1).ToString();
-                lblLoginConfirm.Text = "Welcome " + dtReader.GetValue(1).ToString();
-                Task.Delay(2000);
-                Response.Redirect("index.aspx");
-                clear();
+                // Login successful
+                // Generate a unique session ID and store it in a session variable
+                string sessionID = Guid.NewGuid().ToString();
+                Session["SessionID"] = sessionID;
+
+                // Store the user ID in a session variable
+                int userID = (int)dt.Rows[0]["user_id"];
+                Session["UserID"] = userID;
+
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "Redirect",
+                    "Toastify({\r\ntext: \"Login Successful\",\r\nduration: 3000,\r\nclose: true,\r\ngravity: \"top\",\r\nposition: \"right\",\r\nstopOnFocus: false,\r\nstyle: {\r\n background: \"linear-gradient(to right, #00b09b, #96c93d)\",\r\n}\r\n}).showToast();" +
+                    "window.location.href = 'index.aspx'",
+                    true);
+
             }
             else
             {
                 lblError.Visible = true;
                 lblError.Text = "Enter correct email or password";
-                conn.Close();
             }
-
 
         }
         //Password hashing algorithm

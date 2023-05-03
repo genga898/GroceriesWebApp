@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -11,52 +12,51 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
+using GroceriesWebApp.Users;
 
 namespace GroceriesWebApp
 {
     public partial class register : System.Web.UI.Page
     {
-        private SqlConnection conn;
         private SqlCommand cmd;
-        private SqlDataAdapter reader;
-        private DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Database.DbConnect();
         }
 
         protected void rgsSubmit_Click(object sender, EventArgs e)
         {
-            string full_names = string.Empty, email = string.Empty, password = string.Empty, confirmpass = string.Empty, actionName = String.Empty;
+            string full_names = txtFullnames.Text,
+                email = txtEmail.Text,
+                password = txtPassword.Text;
             int user_id = Convert.ToInt32(Request.QueryString["user_id"]);
             DateTime date = DateTime.Now;
             bool isValidToExecute = false;
 
-            full_names = txtFullnames.Text;
-            email = txtEmail.Text;
-            password = txtPassword.Text;
-            confirmpass = txtConfirmpass.Text;
             password = HashPassword(password);
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connectDb"].ConnectionString);
-            cmd = new SqlCommand("User_SP", conn);
-            cmd.Parameters.AddWithValue("@action", "INSERT");
-            cmd.Parameters.AddWithValue("@names", full_names);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@password", password);
-            cmd.Parameters.AddWithValue("@created_at", date);
 
             isValidToExecute =true;
             if (isValidToExecute)
             {
-                cmd.CommandType = CommandType.StoredProcedure;
+                string sqlText =
+                    "INSERT INTO Users(names, email, password, created_at) " +
+                    "VALUES(@full_names, @email, @password, @date)";
+                cmd = new SqlCommand();
+                cmd.CommandText = sqlText ;
+                cmd.Connection = Database.Conn;
+
+                cmd.Parameters.AddWithValue("@full_names", full_names);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@date", date);
                 try
                 {
-                    conn.Open();
                     cmd.ExecuteNonQuery();
-                    lblRegConfirm.Visible = true;
-                    lblRegConfirm.Text = "Registration Successful";
-                    Thread.Sleep(2000);
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "Refresh", " window.location.href = 'login.aspx';", true);
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "Redirect", 
+                        "Toastify({\r\ntext: \"Registration Successful\",\r\nduration: 3000,\r\nclose: true,\r\ngravity: \"top\",\r\nposition: \"right\",\r\nstopOnFocus: false,\r\nstyle: {\r\n background: \"linear-gradient(to right, #00b09b, #96c93d)\",\r\n}\r\n}).showToast();" +
+                        "window.location.href = 'login.aspx'",
+                        true);
                     clear();
                 }
                 catch (SqlException ex)
@@ -64,7 +64,7 @@ namespace GroceriesWebApp
                     if (ex.Message.Contains("Violation of UNIQUE KEY constraint"))
                     {
                         lblEmailError.Visible = true;
-                        lblEmailError.Text = "User with the email address " + email + " already exists!";
+                        lblEmailError.Text = "User with the email address "+ email+" already exists!";
                     }
                 }
                 catch (Exception exception)
@@ -75,7 +75,8 @@ namespace GroceriesWebApp
                 }
                 finally
                 {
-                    conn.Close();
+                    cmd.Dispose();
+                   Database.Conn.Close();
                 }
             }
         }
