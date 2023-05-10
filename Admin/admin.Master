@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="customer.aspx">
+                        <a href="customers.aspx">
                         <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
                         <span class="title">Customers</span>
 

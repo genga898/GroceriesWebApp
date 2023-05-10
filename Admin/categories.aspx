@@ -31,17 +31,17 @@
 
          <div class="passcards">
             <asp:Label ID="Label2" runat="server" Text="Product name" ></asp:Label><br/>
-            <asp:TextBox ID="txtprodname" runat="server" class="inputs" placeholder="product name"></asp:TextBox><br />
+            <asp:TextBox ID="txtprodname" runat="server" CssClass="inputs" placeholder="Product name"></asp:TextBox><br />
          </div>
 
         <div class="passcards">
             <asp:Label ID="Label4" runat="server" Text="Price" ></asp:Label><br/>
-            <asp:TextBox ID="txtprice" runat="server" class="inputs" placeholder="price"></asp:TextBox><br />
+            <asp:TextBox ID="txtprice" runat="server" CssClass="inputs" placeholder="Price"></asp:TextBox><br/>
          </div>
 
          <div class="passcards">
             <asp:Label ID="Label5" runat="server" Text="Quantity" ></asp:Label><br/>
-            <asp:TextBox ID="txtquantity" runat="server" class="inputs" placeholder="quantity"></asp:TextBox><br />
+             <asp:TextBox ID="txtquantity" runat="server" CssClass="inputs" placeholder="Quantity"></asp:TextBox><br />
          </div>
          <div class="passcards">
              <asp:Label ID="Label3" runat="server" Text="Image" ></asp:Label><br/>

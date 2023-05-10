@@ -6,15 +6,15 @@
         <div class="passbox">
             <h2>Change Password</h2>
             <div class="passcards">
-                <asp:Label ID="Label1" runat="server" Text="Current Password" ></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Current Password" ></asp:Label><br/>
                 <asp:TextBox ID="TextBox1" runat="server" class="inputs" placeholder="current holder"></asp:TextBox><br />
             </div>
             <div class="passcards">
-                <asp:Label ID="Label2" runat="server" Text="New Password" ></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="New Password" ></asp:Label><br/>
                 <asp:TextBox ID="TextBox2" runat="server" class="inputs" placeholder="new password"></asp:TextBox><br />
             </div>
             <div class="passcards">
-                <asp:Label ID="Label3" runat="server" Text="Confirm new password" ></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Confirm new password" ></asp:Label><br/>
                 <asp:TextBox ID="TextBox3" runat="server" class="inputs" placeholder="confirm new password"></asp:TextBox><br />
             </div>
             <div class="buttons">
