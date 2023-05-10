@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <p class="text-center display-6">Fruits</p>
     </div>
-    <div class="container-fluid py-3 gap-1">
+    <div class="container-fluid py-3 gap-0 d-flex flex-sm-wrap flex-lg-row">
         <asp:Repeater ID="rpFruits" runat="server">
             <ItemTemplate>
                 <div class="col-sm-4 col-md-4 col-lg-2">
@@ -21,14 +21,14 @@
                             <asp:Image runat="server" ID="imgProduct" CssClass="card-img-fixed-height" ImageUrl='<%# Eval("ImageUrl") %>' />
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">"<%# Eval("name") %>"</h5>
+                            <h5 class="card-title"><asp:Literal runat="server" ID="litProductName" Text='<%# Eval("name") %>' /></h5>
                             <p class="card-text"><asp:Literal runat="server" ID="litProductDescription" Text="Fruits" /></p>
                             <div class="row">
                                 <div class="col-6">
-                                    <p>Ksh: "<%# Eval("price") %>"</p>
+                                    <p>Ksh: <asp:Literal runat="server" ID="litProductPrice" Text='<%# Eval("price") %>' /></p>
                                 </div>
                                 <div class="col-6">
-                                    <asp:Button runat="server" ID="btnAddToCart" Text="Add to Cart" CssClass="btn btn-outline-success float-right" OnClick="btnAddToCart_OnClick"/>
+                                    <asp:Button runat="server" ID="btnAddToCart" Text="Add to Cart" CssClass="btn btn-outline-success float-right" OnClick="btnAddToCart_OnClick" CommandArgument='<%# Eval("product_id")%>'/>
                                 </div>
                             </div>
                         </div>

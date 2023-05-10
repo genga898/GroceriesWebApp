@@ -7,10 +7,6 @@
 <%@ Register Src="~/Users/cartItem.ascx" TagPrefix="uc1" TagName="cartItem" %>
 
 
-
-
-
-
 <!DOCTYPE html>
 
 <html>
@@ -49,8 +45,9 @@
                             <uc1:cartItem runat="server" ID="cartItem" />
                         </div>
                         <div class="mt-auto">
-                            <asp:Literal ID="ltlTotal" Text="" runat="server"></asp:Literal>
-                            <asp:Button ID="CheckoutButton" runat="server" Text="Checkout" CssClass="btn btn-primary w-100" />
+                            <hr/>
+                            <p>Total: <asp:Literal ID="ltlTotal" Text="" runat="server"></asp:Literal></p>
+                            <asp:Button ID="CheckoutButton" runat="server" Text="Checkout" CssClass="btn btn-primary w-100" OnClick="CheckoutButton_OnClick"/>
                         </div>
                     </div>
                 </div>

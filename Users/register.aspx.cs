@@ -53,9 +53,22 @@ namespace GroceriesWebApp
                 try
                 {
                     cmd.ExecuteNonQuery();
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "Redirect", 
-                        "Toastify({\r\ntext: \"Registration Successful\",\r\nduration: 3000,\r\nclose: true,\r\ngravity: \"top\",\r\nposition: \"right\",\r\nstopOnFocus: false,\r\nstyle: {\r\n background: \"linear-gradient(to right, #00b09b, #96c93d)\",\r\n}\r\n}).showToast();" +
-                        "window.location.href = 'login.aspx'",
+                    string toast = "Toastify({\r\n            " +
+                                   "text: \"Registration Successful\",\r\n" +
+                                   "duration: 3000,\r\n" +
+                                   "close: true,\r\n" +
+                                   "gravity: \"top\",\r\n" +
+                                   "position: \"center\",\r\n" +
+                                   "style: " +
+                                   "{\r\n"+
+                                   "     background: \"linear-gradient(to right, #00b09b, #96c93d)\"\r\n" +
+                                   "}\r\n\r\n" +
+                                   "}).showToast();";
+                    string delay = "setTimeout(function() {\r\n  " +
+                                   "window.location.href = 'login.aspx';" +
+                                   "\r\n}, 2000);\r\n";
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "Redirect",
+                        toast+delay,
                         true);
                     clear();
                 }
@@ -69,8 +82,19 @@ namespace GroceriesWebApp
                 }
                 catch (Exception exception)
                 {
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "Popup",
-                        $"Swal.fire({{\r\n  icon: 'error',\r\n  title: {exception}}})",
+                    string toast = "Toastify({\r\n            " +
+                                   $"text: \"{exception}\",\r\n" +
+                                   "duration: 3000,\r\n" +
+                                   "close: true,\r\n" +
+                                   "gravity: \"top\",\r\n" +
+                                   "position: \"center\",\r\n" +
+                                   "style: " +
+                                   "{\r\n"+
+                                   "     background: \"red\"\r\n" +
+                                   "}\r\n\r\n" +
+                                   "}).showToast();";
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "Redirect",
+                        toast,
                         true);
                 }
                 finally

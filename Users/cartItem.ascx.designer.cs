@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GroceriesWebApp
+namespace GroceriesWebApp.Users
 {
 
 
-    public partial class eggs
+    public partial class cart
     {
 
         /// <summary>
-        /// rpEggs control.
+        /// rprCartItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpEggs;
+        protected global::System.Web.UI.WebControls.Repeater rprCartItem;
     }
 }

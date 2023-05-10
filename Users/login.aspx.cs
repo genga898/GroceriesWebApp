@@ -20,7 +20,7 @@ namespace GroceriesWebApp
         private SqlCommand cmd;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -48,10 +48,23 @@ namespace GroceriesWebApp
                 // Store the user ID in a session variable
                 int userID = (int)dt.Rows[0]["user_id"];
                 Session["UserID"] = userID;
-
+                string toast = "Toastify({\r\n            " +
+                               "text: \"Login Successful\",\r\n" +
+                               "duration: 3000,\r\n" +
+                               "close: true,\r\n" +
+                               "gravity: \"top\",\r\n" +
+                               "position: \"center\",\r\n" +
+                               "style: " +
+                               "{\r\n"+
+                               "     background: \"linear-gradient(to right, #00b09b, #96c93d)\"\r\n" +
+                               "}\r\n\r\n" +
+                               "}).showToast();";
+                string delay = "setTimeout(function() {\r\n  " +
+                               "window.location.href = 'index.aspx';" +
+                               "\r\n}, 2000);\r\n";
+                clear();
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "Redirect",
-                    "Toastify({\r\ntext: \"Login Successful\",\r\nduration: 3000,\r\nclose: true,\r\ngravity: \"top\",\r\nposition: \"right\",\r\nstopOnFocus: false,\r\nstyle: {\r\n background: \"linear-gradient(to right, #00b09b, #96c93d)\",\r\n}\r\n}).showToast();" +
-                    "window.location.href = 'index.aspx'",
+                    toast+delay,
                     true);
 
             }
@@ -59,6 +72,7 @@ namespace GroceriesWebApp
             {
                 lblError.Visible = true;
                 lblError.Text = "Enter correct email or password";
+                clear();
             }
 
         }

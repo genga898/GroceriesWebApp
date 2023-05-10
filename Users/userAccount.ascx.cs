@@ -16,7 +16,7 @@ namespace GroceriesWebApp.Users
 
         protected void logout_Click(object sender, EventArgs e)
         {
-            if (Session["user_id"] != null)
+            if (Session["UserID"] != null)
             {
                 Session.Abandon();
                 Session.Clear();
